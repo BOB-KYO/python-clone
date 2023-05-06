@@ -124,4 +124,5 @@ while running:
     pygame.display.update() # 게임화면 다시 그리기! 이벤트 루트
 
 # pygmae quit
+# 팡게임 나가기
 pygame.quit()
