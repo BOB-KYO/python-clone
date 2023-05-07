@@ -126,3 +126,4 @@ while running:
 # pygmae quit
 # 팡게임 나가기
 pygame.quit()
+# 팡게임 나가기
