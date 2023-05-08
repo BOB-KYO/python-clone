@@ -13,10 +13,10 @@ pygame.display.set_caption("PangPang Game") #게임 이름
 # FPS
 clock = pygame.time.Clock()
 # 배경 이미지 불러오기
-background = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/Py files/PangPang/background.png")
+background = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/python-clone/PangPang/background.png")
 
 #캐릭터(스프라이트) 불러오기
-character = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/Py files/PangPang/character.png")
+character = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/python-clone/PangPang/character.png")
 character_size = character.get_rect().size # 이미지 크기 설정
 character_width = character_size[0] # 캐릭터의 가로 크기
 character_height = character_size[1] # 캐릭터의 세로 크기
@@ -31,21 +31,21 @@ to_y = 0
 character_speed = 2
 
 # 적(스프라이트) enemy 캐릭터
-enemy = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/Py files/PangPang/enemy.png")
+enemy = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/python-clone/PangPang/enemy.png")
 enemy_size = enemy.get_rect().size # 이미지 크기 설정
 enemy_width = enemy_size[0] # 캐릭터의 가로 크기
 enemy_height = enemy_size[1] # 캐릭터의 세로 크기
 enemy_x_pos = screen_width / 2 - (enemy_width / 2) # 화면 가로의 절반 크기에 설정 - 캐릭터 절반에 위치 설정
 enemy_y_pos = screen_height / 2 - enemy_height / 2  #화면 세로 크기 가장 아래에 캐릭터 설정
 
-# 폰트 설정
-game_font = pygame.font.Font(None, 40) # 폰트 객체 생성 (폰트 스타일, 크기)
+#폰트 정의
+game_font = pygame.font.Font(None, 40) # 폰트 객체 생성 (폰트,크기)
 
-# 총 시간 설정
+#총 시간
 total_time = 10
 
-# 시작 시간
-start_ticks = pygame.time.get_ticks() # 현제 시작 tick을 받아오기
+#시작 시간 계산
+start_ticks = pygame.time.get_ticks() #어떤 이벤트가 발생하는가? tick을 받아옴
 
 # 이벤트 루프
 running = True # 게임이 진행중인지 확인
@@ -111,19 +111,23 @@ while running:
     screen.blit(character, (character_x_pos, character_y_pos)) # 캐릭터 그리기
     screen.blit(enemy, (enemy_x_pos, enemy_y_pos)) # 적 그리기
 
-    
+    # 타이머 넣기
+    #경과 시간 계싼
+    elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000 
+    #경과 시간(ms) 을 1000으로 초(s) 단위로 표시
 
-    #타이머 설정
-    #경과 시간 
-    elapsed_time = (pygame.time.get_ticks() - start_ticks) / 1000 #경과 시간을 1000으로 나누어서 초 단위로 표시
+    timer = game_font.render(str(int(total_time - elapsed_time)),True, (255,255,255))
+    #처음에 랜더 뒤에는 출력할 시간표시,True, 글자 색상
+    screen.blit(timer, (10,10)) 
 
-    timer = game_font.render(str(int(total_time - elapsed_time)), True, (255,255,255)) # 실제 화면에 시간 타이머 그리기
-    #출력할 글자 설정, True, 글자 색상
-    screen.blit(timer,(10,10))
+    #만약 시간이 0이 되면 게임종료
+    if total_time - elapsed_time <= 0:
+        print("타임아웃")
+        running = False
 
     pygame.display.update() # 게임화면 다시 그리기! 이벤트 루트
 
+#잠시 대기
+pygame.time.delay(2000) #2초 정도 대기 후 종료
 # pygmae quit
-# 팡게임 나가기
-pygame.quit()
-# 팡게임 나가기
+pygame.quit()  

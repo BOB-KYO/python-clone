@@ -11,7 +11,7 @@ pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("PangPang Game") #게임 이름
 
 # 배경 이미지 불러오기
-background = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/Py files/PangPang/background.png")
+background = pygame.image.load("C:\Users\loved\OneDrive\개인\Notebook_backup\Python Project\python-clone\PangPang")
 
 # 이벤트 루프
 running = True # 게임이 진행중인지 확인

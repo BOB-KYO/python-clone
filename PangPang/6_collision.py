@@ -13,10 +13,10 @@ pygame.display.set_caption("PangPang Game") #게임 이름
 # FPS
 clock = pygame.time.Clock()
 # 배경 이미지 불러오기
-background = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/Py files/PangPang/background.png")
+background = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/python-clone/PangPang/background.png")
 
 #캐릭터(스프라이트) 불러오기
-character = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/Py files/PangPang/character.png")
+character = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/python-clone/PangPang/character.png")
 character_size = character.get_rect().size # 이미지 크기 설정
 character_width = character_size[0] # 캐릭터의 가로 크기
 character_height = character_size[1] # 캐릭터의 세로 크기
@@ -31,7 +31,7 @@ to_y = 0
 character_speed = 2
 
 # 적(스프라이트) enemy 캐릭터
-enemy = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/Py files/PangPang/enemy.png")
+enemy = pygame.image.load("C:/Users/loved/OneDrive/개인/Notebook_backup/Python Project/python-clone/PangPang/enemy.png")
 enemy_size = enemy.get_rect().size # 이미지 크기 설정
 enemy_width = enemy_size[0] # 캐릭터의 가로 크기
 enemy_height = enemy_size[1] # 캐릭터의 세로 크기
